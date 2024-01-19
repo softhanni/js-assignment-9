@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Assignment No. 1: Title Case Converter Function
+    </h1>
+
+    <script>
+
+        
+// created a function which takes a string in an argument.
+ function convertToTitleCase( inputString){
+    
+    //converting the string into an Array using split() method, on the basis of space
+    var convertedString = inputString.split( " ");
+    
+   
+    //runing a for loop which checks every index of convertedArray and than updates.
+    for (i= 0; i < convertedString.length; i++){
+        
+        //accessing loop initializer within with the help of array and selecting every first word of array using charAt() method and assining method .toUpperCase in order capitalize every first letter of all indices and than concatinating the same convertedArray with remaing letters //
+
+        convertedString[i] = convertedString[i].charAt(0).toUpperCase()  + convertedString[i].slice(1) + " ";
+      
+        //consoling convertedString[i]
+        document.write( convertedString[i]  )  
+    }
+    
+}
+
+//calling the function with a sentence//
+convertToTitleCase("hello my name is hanif")
+    </script>
+
+    <h1>Assignment No. 2: Time-Based Greeting Function
+    </h1>
+
+    <script>
+
+
+//Creating a function named getGreeting with no parameters.
+function getGreeting() {
+  
+
+  //assigning date object into a variable so that we can access date methods later on.
+  var date = new Date();
+  
+//    using multiple if conditions like  TimeHours is greater than 0 and less than 12 display "good morning" and if TimeHours is greater than 12 and less than 18 display "good evening " and at the last if TimeHours is greater than 18 and less than 24 than display "good night".
+// in every if statement there are 2 condtions, we use && operaters to ensure that both condtions should be true, if both conditions returns true than the statement of that if will display otherwise it will go to next if  and checks and so on
+
+  if (date.getHours() > 0 && date.getHours() <  12 ){
+       document.write("Good Morning")
+  }
+  
+  if (date.getHours() > 12 && date.getHours() < 18  ){
+       document.write("Good Evening")
+  }
+  
+  if (date.getHours() > 18 && date.getHours() < 24  ){
+       document.write("Good Night")
+  }
+  
+}
+
+
+//finally calling the function and it returns the statement according to dayHours
+getGreeting()
+
+
+
+    </script>
+
+
+<h1>Assignment No. 3: Current Day of the Week Function
+</h1>
+
+<script>
+
+function getCurrentDayOfWeek() {
+  var date = new Date()
+
+  //days name in an array 
+  var days = ["Sunday" , "Monday" , "Tuesday", "Wednesday", "Thursday" , "Friday" , "Saturday" ];
+  
+  //accessing array values using getDay method,
+  document.write("Today is " + days[date.getDay()]);
+
+  
+}
+
+getCurrentDayOfWeek()
+
+// var currentDay = getCurrentDayOfWeek();
+// console.log("Today is " + currentDay);
+
+</script>
+
+<h1>Assignment No. 4: Console-Based Digital Clock in 24-Hour Format
+</h1>
+<h3>Check clock in console</h3>
+<script src="clock.js"></script>
+
+<h1>Assignment No. 5: Console-Based Digital Clock in 12-Hour Format</h1>
+
+<a href="clock12formate.html">CLOCK 12 FORMAT</a>
+
+
+<h1>Assignment No. 6: Find Max and Min Values
+</h1>
+
+
+<script>
+  
+function findMaxMin(...num) {
+  
+  let max = -Infinity;
+  let min = Infinity;
+ 
+  for (let i of num) {
+    
+      max = Math.max(max, i);
+      min = Math.min(min, i);
+    }
+
+    return { max, min };
+
+}
+
+console.log(findMaxMin(7,3,5, 0, 9)); 
+console.log(findMaxMin(-8, 0, 10)); 
+
+
+</script>
+
+
+<h1>Assignment No. 7: Math Object Exploration
+</h1>
+<script>
+  function exploreMathObject(num) {
+  
+  
+  // Math.round method gives the roundof value of any number if we use this method with 2.3 it returns 2 and if we use this with 2.6 it return 4. 
+ var roundOf = Math.round(num)
+  document.write(roundOf);
+  document.write("<br>")
+  //ceil method always return the upper roundof value like if we use this method with 2.3 , 2.8, 2.1 or 2.5 it always returns 3
+  var ceil = Math.ceil(num)
+  document.write(ceil);
+  document.write("<br>")
+  //floor method does opposite it always return =s lower roundof value if we use floor with 2.9 , 2.3 2.5 it always returns 2
+  var floor = Math.floor(num)
+  document.write(floor);
+}
+
+exploreMathObject(2.4)
+
+</script>
+
+<h1>Final Assignment: Higher-Order Functions and Callbacks
+</h1>
+
+<script>
+
+  
+function performOperation(num1, num2, operationCallback) {
+  
+  return operationCallback(num1, num2);
+}
+function displayResult(message, value) {
+  document.write(message + ": " + value);
+}
+function add(a, b) {
+  return a + b;
+}
+function mul(a, b) {
+  return a * b;
+}
+
+var result1 = performOperation(5, 3, add);
+displayResult("Addition Result", result1); 
+document.write("<br>")
+var result2 = performOperation(4, 6, mul);
+displayResult("Multiplication Result", result2); 
+</script>
+</body>
+</html>
